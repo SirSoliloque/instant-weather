@@ -1,6 +1,8 @@
 const barreRechercheCodePostal = document.getElementById("codePostalInput");
 const boutonRechercheCodePostal = document.getElementById("recherche");
 
+let villes = [];
+
 boutonRechercheCodePostal.addEventListener("click", onRechercher);
 
 function onRechercher(){
@@ -22,4 +24,24 @@ function onRechercher(){
 
 function onErreurDeSaisie(message){
     alert(message);
+}
+
+const setVilles = async codepostal => {
+    return fetch("https://geo.api.gouv.fr/communes?codePostal="+codepostal)
+    .then(res =>{
+        if(!res.ok){
+            throw new Error("gofuckyourself")
+        }
+        return res.json();
+    })
+    .then(data =>{
+        villes = [];
+        for(i = 0; i < data.length; i++){
+            villes[i] = data[i].nom;
+        }
+    })
+}
+
+const getVilles = () => {
+    return villes;
 }
