@@ -3,24 +3,33 @@ body{
     background-image: url("../image/theme_clair.jpg"); 
     background-repeat: no-repeat;
     background-size: 100%;
-    height: auto;
-    width: auto;
+    resize:both;
+    overflow: scroll;
+    text-align: center;
 }
 
 h1{
     color: aliceblue;
-}
-
-p{
-    color: aliceblue;
+    text-align: center;
 }
 
 button{
     margin-left: 10px;
-    margin-right: 10px;
 }
 
-#codePostalInput{
-    margin-left: 10px;
-    margin-right: 10px;
+.resultat{
+    border: 1px solid black;
+	border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+
+#villeListe{
+    margin-top: 10px;
+    margin-right: 5.5%;
+}
+
+.cache{
+    display: none;
 }
