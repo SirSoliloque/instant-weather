@@ -1,11 +1,9 @@
 
 body{
-    background-image: url("../image/theme_clair.jpg"); 
-    background-repeat: no-repeat;
-    background-size: 100%;
-    resize:both;
-    overflow: scroll;
+    background: url("../image/theme_clair.jpg") no-repeat fixed;
+    background-size: cover;
     text-align: center;
+
 }
 
 h1{
