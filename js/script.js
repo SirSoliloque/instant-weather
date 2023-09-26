@@ -30,7 +30,7 @@ const setVilles = async codepostal => {
     return fetch("https://geo.api.gouv.fr/communes?codePostal="+codepostal)
     .then(res =>{
         if(!res.ok){
-            throw new Error("gofuckyourself")
+            throw new Error("An error has been made")
         }
         return res.json();
     })
