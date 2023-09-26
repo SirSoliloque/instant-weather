@@ -1,29 +1,45 @@
+// Éléments du DOM
 const barreRechercheCodePostal = document.getElementById("codePostalInput");
 const boutonRechercheCodePostal = document.getElementById("recherche");
+const listeDeroulanteVilles = document.getElementById("villeListe");
+
+boutonRechercheCodePostal.addEventListener("click", onRechercher);
+listeDeroulanteVilles.addEventListener("change", onSelectionneVille);
 
 let villes = [];
 
-boutonRechercheCodePostal.addEventListener("click", onRechercher);
+
 
 function onRechercher(){
-    let valeurS = barreRechercheCodePostal.value;
+    let codePostalS = barreRechercheCodePostal.value;
 
-    let valeurN = Number.parseInt(valeurS);
-    console.log(valeurS.length);
+    let codePostalN = Number.parseInt(codePostalS);
     
-    if(isNaN(valeurN)){
-        onErreurDeSaisie("Le code postal contient des caractères non numériques.");
+    if(isNaN(codePostalN)){
+        onErreurSaisieCodePostal("Le code postal contient des caractères non numériques.");
         return;
     }
 
-    if(valeurS.length != 5){
-        onErreurDeSaisie("Le code postal doit contenir 5 caractères.");
+    if(codePostalS.length != 5){
+        onErreurSaisieCodePostal("Le code postal doit contenir 5 caractères.");
         return;
     }
+
+    setVilles(codePostalN).then(listeVille);
 }
 
-function onErreurDeSaisie(message){
+function onErreurSaisieCodePostal(message){
     alert(message);
+    listeDeroulanteVilles.classList.add("cache");
+}
+
+function listeVille(){
+    listeDeroulanteVilles.innerHTML = `<option value="placeholder">--Sélectionner une ville--</option>`;
+
+    villes.forEach((ville) => {
+        listeDeroulanteVilles.innerHTML += `\n<option value="${ville}">${ville}</option>`;
+    });
+    listeDeroulanteVilles.classList.remove("cache");
 }
 
 const setVilles = async codepostal => {
@@ -40,6 +56,16 @@ const setVilles = async codepostal => {
             villes[i] = data[i].nom;
         }
     })
+}
+
+function onSelectionneVille(){
+    let ville = listeDeroulanteVilles.value;
+
+    if(ville === "placeholder"){
+        return;
+    }
+
+    alert(ville);
 }
 
 const getVilles = () => {
