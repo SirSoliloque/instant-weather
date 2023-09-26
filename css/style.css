@@ -3,7 +3,7 @@ body{
     background: url("../image/theme_clair.jpg") no-repeat fixed;
     background-size: cover;
     text-align: center;
-
+    background-color: black;
 }
 
 h1{
@@ -30,4 +30,8 @@ button{
 
 .cache{
     display: none;
+}
+
+.sombre{
+    color: black;
 }
