@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,13 @@
 </head>
 <body>
     <h1>Instant Weather</h1>
-    <p>Entrer votre code postal:<input type="search" id="codePostalInput"><button id="recherche">Rechercher</button></p>
-
+    <input type="search" id="codePostalInput" placeholder="Entrez votre code postal"><button id="recherche">Rechercher</button>
+    <br>
+    <select id="villeListe">
+        <option>--Sélectionner une ville--</option>
+    </select>
+    <div class="resultat cache" >
+    </div>
     <script src ="js/script.js"></script>
 </body>
 </html>
