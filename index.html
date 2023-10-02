@@ -13,8 +13,19 @@
     <select id="villeListe" class="cache">
         <option>--Sélectionner une ville--</option>
     </select>
-    <div class="resultat cache" >
+    <div class="resultat cache" id="resultat">
+        <div class="weatherCard" id="weatherCard">
+            <p>Ville : <span id="WCVille"></span></p>
+            <p>Temps <span id="WCBref"></span></p>
+            <p>Température min : <span id="WCTemperatureMin"></span></p>
+            <p>Température max : <span id="WCTemperatureMax"></span></p>
+            <p>Probabilité de pluie : <span id="WCPluie"></span></p>
+            <p>Temps d'ensoleillements : <span id="WCEnsoleillement"></span> heures.</p>
+            <p>(valeurs de test)</p>
+        </div>
     </div>
     <script src ="js/script.js"></script>
+
+    
 </body>
 </html>

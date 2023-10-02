@@ -1,4 +1,6 @@
 // Éléments du DOM
+
+// Interface
 const barreRechercheCodePostal = document.getElementById("codePostalInput");
 const boutonRechercheCodePostal = document.getElementById("recherche");
 const listeDeroulanteVilles = document.getElementById("villeListe");
@@ -6,9 +8,16 @@ const listeDeroulanteVilles = document.getElementById("villeListe");
 boutonRechercheCodePostal.addEventListener("click", onRechercher);
 listeDeroulanteVilles.addEventListener("change", onSelectionneVille);
 
+// Zones d'affichage
+const zoneResultats = document.getElementById("resultat");
+const labelVille = document.getElementById("WCVille");
+const labelBref = document.getElementById("WCBref"); // décrit brièvement le temps (clair, nuageux...)
+const labelTemperatureMin = document.getElementById("WCTemperatureMin");
+const labelTemperatureMax = document.getElementById("WCTemperatureMax");
+const labelPluie = document.getElementById("WCPluie"); // Probabilité de pluie
+const labelEnsoleillement = document.getElementById("WCEnsoleillement"); // Nombres d'heures d'ensoleillement
+
 let villes = [];
-
-
 
 function onRechercher(){
     let codePostalS = barreRechercheCodePostal.value;
@@ -31,6 +40,7 @@ function onRechercher(){
 function onErreurSaisieCodePostal(message){
     alert(message);
     listeDeroulanteVilles.classList.add("cache");
+    zoneResultats.classList.add("cache");
 }
 
 function listeVille(){
@@ -65,7 +75,21 @@ function onSelectionneVille(){
         return;
     }
 
-    alert(ville);
+    afficherMeteo("", ville);
+}
+
+function afficherMeteo(codeInsee, ville){
+    //TODO appeler le code de Victor pour soliciter l'API de météo
+    // Pour l'instant, on remplit avec des valeurs statiques pour tester
+    
+    labelVille.textContent = ville;
+    labelBref.textContent = "ensoleillé";
+    labelTemperatureMin.textContent = "15 °C";
+    labelTemperatureMax.textContent = "29 °C";
+    labelPluie.textContent = "2 %";
+    labelEnsoleillement.textContent = "3 heures";
+
+    zoneResultats.classList.remove("cache");
 }
 
 const getVilles = () => {
