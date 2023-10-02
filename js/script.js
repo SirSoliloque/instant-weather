@@ -17,7 +17,7 @@ const labelTemperatureMax = document.getElementById("WCTemperatureMax");
 const labelPluie = document.getElementById("WCPluie"); // Probabilité de pluie
 const labelEnsoleillement = document.getElementById("WCEnsoleillement"); // Nombres d'heures d'ensoleillement
 
-let villes = [];
+let villes_insee = new Map();
 
 function onRechercher(){
     let codePostalS = barreRechercheCodePostal.value;
@@ -46,8 +46,8 @@ function onErreurSaisieCodePostal(message){
 function listeVille(){
     listeDeroulanteVilles.innerHTML = `<option value="placeholder">--Sélectionner une ville--</option>`;
 
-    villes.forEach((ville) => {
-        listeDeroulanteVilles.innerHTML += `\n<option value="${ville}">${ville}</option>`;
+    villes_insee.forEach((ville, codeInsee) => {
+        listeDeroulanteVilles.innerHTML += `\n<option value="${codeInsee}">${ville}</option>`
     });
     listeDeroulanteVilles.classList.remove("cache");
 }
@@ -56,33 +56,34 @@ const setVilles = async codepostal => {
     return fetch("https://geo.api.gouv.fr/communes?codePostal="+codepostal)
     .then(res =>{
         if(!res.ok){
-            throw new Error("An error has been made")
+            throw new Error("erreur")
         }
         return res.json();
     })
     .then(data =>{
-        villes = [];
+        villes_insee = new Map()
         for(i = 0; i < data.length; i++){
-            villes[i] = data[i].nom;
+            villes_insee[i] = data[i].nom;
+            villes_insee.set( data[i].code, data[i].nom)
         }
     })
 }
 
 function onSelectionneVille(){
-    let ville = listeDeroulanteVilles.value;
+    let codeInsee = listeDeroulanteVilles.value;
 
-    if(ville === "placeholder"){
+    if(codeInsee === "placeholder"){
         return;
     }
 
-    afficherMeteo("", ville);
+    afficherMeteo(codeInsee);
 }
 
-function afficherMeteo(codeInsee, ville){
+function afficherMeteo(codeInsee){
     //TODO appeler le code de Victor pour soliciter l'API de météo
     // Pour l'instant, on remplit avec des valeurs statiques pour tester
     
-    labelVille.textContent = ville;
+    labelVille.textContent = villes_insee.get(codeInsee);
     labelBref.textContent = "ensoleillé";
     labelTemperatureMin.textContent = "15 °C";
     labelTemperatureMax.textContent = "29 °C";
