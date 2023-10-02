@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;500&family=Roboto:wght@100&display=swap');
+
+
+body{
+    background: url("../image/theme_clair.jpg") no-repeat fixed;
+    background-size: cover;
+    text-align: center;
+    background-color: black;
+    font-family: 'Young Serif', sans-serif;
+    border-image: 10px solid black;
+}
+
+h1{
+    color: aliceblue;
+    text-align: center;
+    font-size: 500%;
+    font-family: 'Young Serif', sans-serif;
+}
+
+button{
+    margin: 10px;
+    font-size: large;
+    font-family: 'Young Serif', sans-serif;
+}
+
+
+.cache{
+    display: none;
+}
+
+.sombre{
+    color: black;
+}
+
+.resultat{
+    border: 1px solid black;
+	border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+    font-size: large;
+    display: none;
+}
+
+#villeListe{
+    margin-top: 10px;
+    margin-right: 5.5%;
+    font-size: large;
+    font-family: 'Young Serif', sans-serif;
+}
+
+#codePostalInput{
+    font-size: large;
+    font-family: 'Young Serif', sans-serif;
+
+}
