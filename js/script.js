@@ -1,7 +1,7 @@
 const barreRechercheCodePostal = document.getElementById("codePostalInput");
 const boutonRechercheCodePostal = document.getElementById("recherche");
 
-let villes = [];
+let villes_insee = new Map();
 
 boutonRechercheCodePostal.addEventListener("click", onRechercher);
 
@@ -38,10 +38,15 @@ const setVilles = async codepostal => {
         villes = [];
         for(i = 0; i < data.length; i++){
             villes[i] = data[i].nom;
+            villes_insee.set( data[i].code, data[i].nom)
         }
     })
 }
 
 const getVilles = () => {
-    return villes;
+    return villes_insee;
 }
+
+setVilles(14100).then(() =>{
+    console.log(getVilles())
+});
