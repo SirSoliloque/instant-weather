@@ -1,8 +1,8 @@
 // Description: Classe WeatherCard
 class WeatherCard{
-    static json;
-    static city;
-    static forecast;
+    json;
+    city;
+    forecast;
     constructor(CodeInsee) {
         this.CodeInsee = CodeInsee;
         this.json = null;
@@ -26,10 +26,12 @@ class WeatherCard{
             this.city = data.city;
             this.forecast = data.forecast;
 
+            /**
             console.log(this.json);
             console.log(this.city);
             console.log(this.forecast);
             console.log(this.city.name);
+            **/
         } catch (error) {
             console.error("Erreur lors de la récupération des données météo:", error);
         }
