@@ -9,24 +9,14 @@ body{
 h1{
     color: aliceblue;
     text-align: center;
+    font-size: 500%;
 }
 
 button{
-    margin-left: 10px;
+    margin: 10px;
+    font-size: large;
 }
 
-.resultat{
-    border: 1px solid black;
-	border-radius: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 25%;
-}
-
-#villeListe{
-    margin-top: 10px;
-    margin-right: 5.5%;
-}
 
 .cache{
     display: none;
@@ -35,3 +25,24 @@ button{
 .sombre{
     color: black;
 }
+
+.resultat{
+    border: 1px solid black;
+	border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+    font-size: large;
+}
+
+#villeListe{
+    margin-top: 10px;
+    margin-right: 5.5%;
+    font-size: large;
+}
+
+#codePostalInput{
+    font-size: large;
+}
+
+
