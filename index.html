@@ -10,13 +10,27 @@
     <h1 id="instantWeather">Instant Weather</h1>
     <input type="search" id="codePostalInput" placeholder="Entrez votre code postal" aria-label="code postal"><button id="recherche" >Rechercher</button>
     <br>
-    <select id="villeListe" aria-label="ville">
+
+    <select id="villeListe" class="cache" aria-label="ville">
         <option>--Sélectionner une ville--</option>
     </select>
-    <div class="resultat" >
+
+    <div class="resultat cache" id="resultat">
+        <div class="weatherCard" id="weatherCard">
+            <p>Ville : <span id="WCVille"></span></p>
+            <p>Temps <span id="WCBref"></span></p>
+            <p>Température min : <span id="WCTemperatureMin"></span></p>
+            <p>Température max : <span id="WCTemperatureMax"></span></p>
+            <p>Probabilité de pluie : <span id="WCPluie"></span></p>
+            <p>Temps d'ensoleillements : <span id="WCEnsoleillement"></span> heures.</p>
+            <p>(valeurs de test)</p>
+        </div>
     </div>
     <script src="js/Token.js"></script>
     <script src="js/WeatherCard.js"></script>
-    <script src ="js/script.js"></script>
+    <script src="js/arriere-plan.js"></script>
+    <script src ="js/interface.js"></script>
+
+    
 </body>
 </html>
