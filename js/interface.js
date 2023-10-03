@@ -86,24 +86,14 @@ function onSelectionneVille(){
 function afficherMeteo(weatherCard){
     labelVille.textContent = weatherCard.Ville();
     
-<<<<<<< HEAD
     labelBref.textContent = " :" + weatherCard.meteo(0);
-=======
-    labelBref.textContent = "Temps :" + weatherCard.meteo();
->>>>>>> d4c2a5017a25d771f0ee3379c37cfa00204bee75
     
     labelTemperatureMin.textContent = `${weatherCard.TempMin(0)} °C`;
     labelTemperatureMax.textContent = `${weatherCard.TempMax(0)} °C`;
 
-<<<<<<< HEAD
     labelPluie.textContent = weatherCard.pourcentPluie(0) + "%";
     
     labelEnsoleillement.textContent =  `${weatherCard.ensoleillement(0)} heures`;
-=======
-    labelPluie.textContent = weatherCard.pourcentPluie() + "%";
-    
-    labelEnsoleillement.textContent =  `${weatherCard.ensoleillement()} heures`;
->>>>>>> d4c2a5017a25d771f0ee3379c37cfa00204bee75
 
     actualiserArrierePlan(weatherCard);
 
