@@ -92,8 +92,7 @@ function afficherMeteo(weatherCard){
     labelTemperatureMin.textContent = `${weatherCard.TempMin()} °C`;
     labelTemperatureMax.textContent = `${weatherCard.TempMax()} °C`;
 
-    //TODO probabilité de pluie
-    // labelPluie.textContent = weatherCard.;
+    labelPluie.textContent = `${weatherCard.probarain()} %`;
     
     labelEnsoleillement.textContent =  `${weatherCard.Sunhour()} heures`;
 
