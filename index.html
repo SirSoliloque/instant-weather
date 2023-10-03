@@ -11,9 +11,24 @@
     <input type="search" id="codePostalInput" placeholder="Entrez votre code postal" aria-label="code postal"><button id="recherche" >Rechercher</button>
     <br>
 
+    <div class="choix_info_supp">
+        <input type="checkbox" id="localisation" name="localisation">
+        <label for="localisation">Localisation</label>
+
+        <input type="checkbox" id="niveau_pluie" name="niveau_pluie">
+        <label for="niveau_pluie">Niveau de pluie</label>
+
+        <input type="checkbox" id="vent_moyen" name="vent_moyen">
+        <label for="vent_moyen">Vent moyen</label>
+
+        <input type="checkbox" id="direction_vent" name="direction_vent">
+        <label for="direction_vent">Direction du vent</label>
+    </div>
+
     <select id="villeListe" class="cache" aria-label="ville">
         <option>--Sélectionner une ville--</option>
     </select>
+    
 
     <div class="resultat cache" id="resultat">
         <div class="weatherCard" id="weatherCard">
@@ -23,6 +38,10 @@
             <p>Température max : <span id="WCTemperatureMax"></span></p>
             <p>Probabilité de pluie : <span id="WCPluie"></span></p>
             <p>Temps d'ensoleillements : <span id="WCEnsoleillement"></span> heures.</p>
+            <p id="localisationData">Localisation : <span id="WCLocalisation"></span></p>
+            <p id="niveauPluieData">Cumul de pluie : <span id="WCNiveauPluie"></span></p>
+            <p id="ventMoyenData">Vent moyen : <span id="WCVentMoyen"></span></p>
+            <p id="directionVentData">Direction du vent : <span id="WCDirectionVent"></span></p>
             <p>(valeurs de test)</p>
         </div>
     </div>

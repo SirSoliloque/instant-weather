@@ -5,8 +5,24 @@ const barreRechercheCodePostal = document.getElementById("codePostalInput");
 const boutonRechercheCodePostal = document.getElementById("recherche");
 const listeDeroulanteVilles = document.getElementById("villeListe");
 
+const checkboxLocalisation = document.getElementById("localisation");
+const checkboxNiveauDePluie = document.getElementById("niveau_pluie");
+const checkboxVentMoyen = document.getElementById("vent_moyen");
+const checkboxDirectionDuVent = document.getElementById("direction_vent");
+
+console.log(typeof(checkboxLocalisation))
+
+
 boutonRechercheCodePostal.addEventListener("click", onRechercher);
 listeDeroulanteVilles.addEventListener("change", onSelectionneVille);
+
+
+checkboxLocalisation.addEventListener("change", onLocalisation);
+checkboxNiveauDePluie.addEventListener("change", onNiveauDePluie);
+checkboxVentMoyen.addEventListener("change", onVentMoyen);
+checkboxDirectionDuVent.addEventListener("change", onDirectionvent);
+
+
 
 // Zones d'affichage
 const zoneResultats = document.getElementById("resultat");
@@ -42,6 +58,44 @@ function onErreurSaisieCodePostal(message){
     listeDeroulanteVilles.classList.add("cache");
     zoneResultats.classList.add("cache");
 }
+
+
+
+
+function onLocalisation(){
+    if(!checkboxLocalisation.checked){
+        document.getElementById("localisationData").style.display = "none";
+    } else{
+        document.getElementById("localisationData").style.display = "block";
+    }
+}
+
+function onNiveauDePluie(){
+    if(!checkboxNiveauDePluie.checked){
+        document.getElementById("niveauPluieData").style.display = "none";
+    } else{
+        document.getElementById("niveauPluieData").style.display = "block";
+    }
+}
+
+function onVentMoyen(){
+    if(!checkboxVentMoyen.checked){
+        document.getElementById("ventMoyenData").style.display = "none";
+    } else{
+        document.getElementById("ventMoyenData").style.display = "block";
+    }
+}
+
+function onDirectionvent(){
+    if(!checkboxDirectionDuVent.checked){
+        document.getElementById("directionVentData").style.display = "none";
+    } else{
+        document.getElementById("directionVentData").style.display = "block";
+    }
+}
+
+
+
 
 function listeVille(){
     listeDeroulanteVilles.innerHTML = `<option value="placeholder">--Sélectionner une ville--</option>`;
