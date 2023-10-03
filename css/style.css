@@ -6,7 +6,7 @@ body{
     background-size: cover;
     text-align: center;
     background-color: black;
-    font-family: 'Young Serif', sans-serif;
+    font-family: 'Young Serif', serif;
     border-image: 10px solid black;
 }
 
@@ -14,13 +14,13 @@ h1{
     color: aliceblue;
     text-align: center;
     font-size: 500%;
-    font-family: 'Young Serif', sans-serif;
+    font-family: 'Young Serif', serif;
 }
 
 button{
     margin: 10px;
     font-size: large;
-    font-family: 'Young Serif', sans-serif;
+    font-family: 'Young Serif', serif;
 }
 
 
@@ -39,17 +39,58 @@ button{
     margin-right: auto;
     width: 25%;
     font-size: large;
+    margin-top : 30px;
+    background-color: rgba(255,255,255,0.7);
+    font-weight: bold;
+    font-size: x-large;
+    min-height: 250px;
+    min-width: 300px;
 }
 
 #villeListe{
     margin-top: 10px;
     margin-right: 5.5%;
     font-size: large;
-    font-family: 'Young Serif', sans-serif;
+    font-family: 'Young Serif', serif;
 }
 
 #codePostalInput{
     font-size: large;
-    font-family: 'Young Serif', sans-serif;
+    font-family: 'Young Serif', serif;
 
+}
+
+#nuage{
+    color: #2b3a55;
+    
+}
+
+#pluie{
+    color: #2b3a55;
+}
+
+#neige{
+    color: #2b3a55;
+}
+
+#vent{
+    color: #2b3a55;
+}
+
+#grele{
+    color: #2b3a55;
+    max-width: 40px;
+}
+
+#soleil{
+    color: #ffdd00;
+}
+
+#brume{
+    color: #2b3a55;
+    max-width: 40px;
+}
+
+#orage{
+    color: #ffeb0a;
 }
