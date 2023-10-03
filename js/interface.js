@@ -3,7 +3,11 @@
 // Interface
 const barreRechercheCodePostal = document.getElementById("codePostalInput");
 const boutonRechercheCodePostal = document.getElementById("recherche");
+
+const conteneurChoixVille = document.getElementById("choixVille");
 const listeDeroulanteVilles = document.getElementById("villeListe");
+const inputNombreJours = document.getElementById("inputNbJours");
+const boutonVoirInformations = document.getElementById("voirInformations");
 
 boutonRechercheCodePostal.addEventListener("click", onRechercher);
 listeDeroulanteVilles.addEventListener("change", onSelectionneVille);
@@ -39,7 +43,7 @@ function onRechercher(){
 
 function onErreurSaisieCodePostal(message){
     alert(message);
-    listeDeroulanteVilles.classList.add("cache");
+    conteneurChoixVille.classList.add("cache");
     zoneResultats.classList.add("cache");
 }
 
@@ -49,7 +53,7 @@ function listeVille(){
     villes_insee.forEach((ville, codeInsee) => {
         listeDeroulanteVilles.innerHTML += `\n<option value="${codeInsee}">${ville}</option>`
     });
-    listeDeroulanteVilles.classList.remove("cache");
+    conteneurChoixVille.classList.remove("cache");
 }
 
 const setVilles = async codepostal => {
