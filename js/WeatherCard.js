@@ -10,11 +10,15 @@ class WeatherCard{
         this.prevision = null;
     }
 
+<<<<<<< HEAD
+    async remplir() {
+=======
     async remplir(jour) {
+>>>>>>> d4c2a5017a25d771f0ee3379c37cfa00204bee75
         try {
             // Utilisez "await" pour attendre la réponse de la requête
             const response = await fetch(
-                `https://api.meteo-concept.com/api/forecast/daily/${jour}?token=${Token}&insee=${this.CodeInsee}`
+                `https://api.meteo-concept.com/api/forecast/daily?token=${Token}&insee=${this.CodeInsee}`
             );
             if (!response.ok) {
                 throw new Error(`Erreur de requête: ${response.status}`);
@@ -42,8 +46,13 @@ class WeatherCard{
     Ville(){
         return this.ville["name"];
     }
+<<<<<<< HEAD
+    pourcentPluie(jour){
+        return this.prevision[jour].probarain;
+=======
     pourcentPluie(){
         return this.prevision.probarain;
+>>>>>>> d4c2a5017a25d771f0ee3379c37cfa00204bee75
     }
     latitudeVille(){
         return this.ville.latitude;
@@ -51,6 +60,20 @@ class WeatherCard{
     longitudeVille(){
         return this.ville.longitude;
     }
+<<<<<<< HEAD
+    TempMin(jour){
+        return this.prevision[jour].tmin;
+    }
+    TempMax(jour){
+        return this.prevision[jour].tmax;
+    }
+    ensoleillement(jour){
+        return this.prevision[jour].sun_hours;
+    }
+
+    meteo(jour){
+        let weather=this.prevision[jour].weather;
+=======
     TempMin(){
         return this.prevision.tmin;
     }
@@ -63,6 +86,7 @@ class WeatherCard{
 
     meteo(){
         let weather=this.prevision.weather;
+>>>>>>> d4c2a5017a25d771f0ee3379c37cfa00204bee75
         if (weather<0){
             return Error;
         }
