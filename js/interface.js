@@ -78,7 +78,7 @@ function onSelectionneVille(){
     }
 
     const weatherCard = new WeatherCard(codeInsee);
-    weatherCard.fetchData().then(() =>{
+    weatherCard.fetchData(0).then(() =>{
         afficherMeteo(weatherCard);
     })
 }

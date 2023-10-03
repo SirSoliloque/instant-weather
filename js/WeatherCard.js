@@ -10,11 +10,11 @@ class WeatherCard{
         this.forecast = null;
     }
 
-    async fetchData() {
+    async fetchData(jour) {
         try {
             // Utilisez "await" pour attendre la réponse de la requête
             const response = await fetch(
-                `https://api.meteo-concept.com/api/forecast/daily/0?token=${Token}&insee=${this.CodeInsee}`
+                `https://api.meteo-concept.com/api/forecast/daily/${jour}'?token=${Token}&insee=${this.CodeInsee}`
             );
             if (!response.ok) {
                 throw new Error(`Erreur de requête: ${response.status}`);
@@ -41,6 +41,9 @@ class WeatherCard{
     }
     Ville(){
         return this.city["name"];
+    }
+    probarain(){
+        return this.forecast.probarain;
     }
     latitudeVille(){
         return this.city.latitude;
