@@ -2,7 +2,7 @@ let titre = document.getElementById("instantWeather")
 let fond = document.getElementById("fond")
 
 function actualiserArrierePlan(weatherCard){
-    let typetemps = weatherCard.determineWeather()//methode Victor
+    let typetemps = weatherCard.meteo()//methode Victor
     console.log(typetemps);
     if(typetemps == 'soleil'){
         fond.style.background = 'url("../image/theme_clair.jpg") no-repeat fixed'

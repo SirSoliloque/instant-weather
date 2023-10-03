@@ -78,7 +78,7 @@ function onSelectionneVille(){
     }
 
     const weatherCard = new WeatherCard(codeInsee);
-    weatherCard.fetchData(0).then(() =>{
+    weatherCard.remplir(0).then(() =>{
         afficherMeteo(weatherCard);
     })
 }
@@ -86,16 +86,14 @@ function onSelectionneVille(){
 function afficherMeteo(weatherCard){
     labelVille.textContent = weatherCard.Ville();
     
-    //TODO remplir cette ligne
-    //labelBref.textContent = "ensoleillé";
+    labelBref.textContent = "Temps :" + weatherCard.meteo();
     
     labelTemperatureMin.textContent = `${weatherCard.TempMin()} °C`;
     labelTemperatureMax.textContent = `${weatherCard.TempMax()} °C`;
 
-    //TODO probabilité de pluie
-    // labelPluie.textContent = weatherCard.;
+    labelPluie.textContent = weatherCard.pourcentPluie() + "%";
     
-    labelEnsoleillement.textContent =  `${weatherCard.Sunhour()} heures`;
+    labelEnsoleillement.textContent =  `${weatherCard.ensoleillement()} heures`;
 
     actualiserArrierePlan(weatherCard);
 

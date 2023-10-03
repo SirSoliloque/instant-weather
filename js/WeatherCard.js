@@ -1,16 +1,16 @@
 // Description: Classe WeatherCard
 class WeatherCard{
     json;
-    city;
-    forecast;
+    ville;
+    prevision;
     constructor(CodeInsee) {
         this.CodeInsee = CodeInsee;
         this.json = null;
-        this.city = null;
-        this.forecast = null;
+        this.ville = null;
+        this.prevision = null;
     }
 
-    async fetchData(jour) {
+    async remplir(jour) {
         try {
             // Utilisez "await" pour attendre la réponse de la requête
             const response = await fetch(
@@ -23,8 +23,8 @@ class WeatherCard{
             // Parsez la réponse en JSON
             const data = await response.json();
             this.json = data;
-            this.city = data.city;
-            this.forecast = data.forecast;
+            this.ville = data.city;
+            this.prevision = data.forecast;
 
             /**
             console.log(this.json);
@@ -40,29 +40,29 @@ class WeatherCard{
         return this.json;
     }
     Ville(){
-        return this.city["name"];
+        return this.ville["name"];
     }
-    probarain(){
-        return this.forecast.probarain;
+    pourcentPluie(){
+        return this.prevision.probarain;
     }
     latitudeVille(){
-        return this.city.latitude;
+        return this.ville.latitude;
     }
     longitudeVille(){
-        return this.city.longitude;
+        return this.ville.longitude;
     }
     TempMin(){
-        return this.forecast.tmin;
+        return this.prevision.tmin;
     }
     TempMax(){
-        return this.forecast.tmax;
+        return this.prevision.tmax;
     }
-    Sunhour(){
-        return this.forecast.sun_hours;
+    ensoleillement(){
+        return this.prevision.sun_hours;
     }
 
-    determineWeather(){
-        let weather=this.forecast.weather;
+    meteo(){
+        let weather=this.prevision.weather;
         if (weather<0){
             return Error;
         }
