@@ -6,9 +6,16 @@ const boutonRechercheCodePostal = document.getElementById("recherche");
 const listeDeroulanteVilles = document.getElementById("villeListe");
 
 const checkboxLocalisation = document.getElementById("localisation");
+onLocalisation();
+
 const checkboxNiveauDePluie = document.getElementById("niveau_pluie");
+onNiveauDePluie();
+
 const checkboxVentMoyen = document.getElementById("vent_moyen");
+onVentMoyen();
+
 const checkboxDirectionDuVent = document.getElementById("direction_vent");
+onDirectionvent();
 
 console.log(typeof(checkboxLocalisation))
 
@@ -32,6 +39,10 @@ const labelTemperatureMin = document.getElementById("WCTemperatureMin");
 const labelTemperatureMax = document.getElementById("WCTemperatureMax");
 const labelPluie = document.getElementById("WCPluie"); // Probabilité de pluie
 const labelEnsoleillement = document.getElementById("WCEnsoleillement"); // Nombres d'heures d'ensoleillement
+const labelLocalisation = document.getElementById("WCLocalisation"); // emplacement géographique de la region
+const labelNiveauDePluie = document.getElementById("WCNiveauPluie"); // niveau de pluie
+const labelVentMoyen = document.getElementById("WCVentMoyen"); // la force du vent
+const labelDirectionDuVent = document.getElementById("WCDirectionVent"); // la direction du vent
 
 let villes_insee = new Map();
 
