@@ -1,20 +1,20 @@
 // Description: Classe WeatherCard
-class WeatherCard{
+class WeatherCard {
     json;
-    city;
-    forecast;
+    ville;
+    prevision;
     constructor(CodeInsee) {
         this.CodeInsee = CodeInsee;
         this.json = null;
-        this.city = null;
-        this.forecast = null;
+        this.ville = null;
+        this.prevision = null;
     }
 
-    async fetchData(jour) {
+    async remplir() {
         try {
             // Utilisez "await" pour attendre la réponse de la requête
             const response = await fetch(
-                `https://api.meteo-concept.com/api/forecast/daily/${jour}?token=${Token}&insee=${this.CodeInsee}`
+                `https://api.meteo-concept.com/api/forecast/daily?token=${Token}&insee=${this.CodeInsee}`
             );
             if (!response.ok) {
                 throw new Error(`Erreur de requête: ${response.status}`);
@@ -23,78 +23,88 @@ class WeatherCard{
             // Parsez la réponse en JSON
             const data = await response.json();
             this.json = data;
-            this.city = data.city;
-            this.forecast = data.forecast;
-
-            /**
+            this.ville = this.json.city;
+            this.prevision = this.json.forecast;
             console.log(this.json);
-            console.log(this.city);
-            console.log(this.forecast);
-            console.log(this.city.name);
-            **/
+            /*
+            console.log(this.ville);
+            console.log(this.prevision);
+            console.log(this.ville.name);
+            */
+            this.getjson();
+
         } catch (error) {
             console.error("Erreur lors de la récupération des données météo:", error);
         }
     }
-    getjson(){
+    getprevision(jour) {
+        let i = 0;
+        while (i < 14 && i <= jour) {
+            i++;
+            }
+        
+        return this.prevision[Number(i)];
+        console.error("day out of range");
+    }
+    getjson() {
         return this.json;
     }
-    Ville(){
-        return this.city["name"];
+    Ville() {
+        return this.ville["name"];
     }
-    probarain(){
-        return this.forecast.probarain;
+    pourcentPluie(jour) {
+        return this.getprevision(jour).probarain;
     }
-    latitudeVille(){
-        return this.city.latitude;
+    latitudeVille() {
+        return this.ville.latitude;
     }
-    longitudeVille(){
-        return this.city.longitude;
+    longitudeVille() {
+        return this.ville.longitude;
     }
-    TempMin(){
-        return this.forecast.tmin;
+    TempMin(jour) {
+        return this.getprevision(jour).tmin;
     }
-    TempMax(){
-        return this.forecast.tmax;
+    TempMax(jour) {
+        return this.getprevision(jour).tmax;
     }
-    Sunhour(){
-        return this.forecast.sun_hours;
+    ensoleillement(jour) {
+        return this.getprevision(jour).sun_hours;
     }
 
-    determineWeather(){
-        let weather=this.forecast.weather;
-        if (weather<0){
+    meteo(jour) {
+        let weather = this.getprevision(jour).weather;
+        if (weather < 0) {
             return Error;
         }
-        if (weather<=2){
+        if (weather <= 2) {
             return "soleil";
         }
-        if (weather<=5){
+        if (weather <= 5) {
             return "nuage";
         }
-        if (weather<=7){
+        if (weather <= 7) {
             return "brume";
         }
-        if (weather<=16){
+        if (weather <= 16) {
             return "pluie";
         }
-        if (weather<=32){
+        if (weather <= 32) {
             return "neige";
         }
-        if (weather<=48){
+        if (weather <= 48) {
             return "pluie";
         }
-        if (weather<=78){
+        if (weather <= 78) {
             return "neige";
         }
-        if (weather<=140){
+        if (weather <= 140) {
             return "orage";
         }
-        if (weather<=78){
+        if (weather <= 78) {
             return "vent";
         }
-        
-        if (weather==235){
+
+        if (weather == 235) {
             return "grele";
         }
     }
