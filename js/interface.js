@@ -19,6 +19,9 @@ const labelEnsoleillement = document.getElementById("WCEnsoleillement"); // Nomb
 
 let villes_insee = new Map();
 
+// Forcer l'actualisation (pour tester un arrière plan par exemple)
+//actualiserArrierePlan(null);
+
 function onRechercher(){
     let codePostalS = barreRechercheCodePostal.value;
 
@@ -85,9 +88,6 @@ function onSelectionneVille(){
 
 function afficherMeteo(weatherCard){
     labelVille.textContent = weatherCard.Ville();
-    
-    //TODO remplir cette ligne
-    //labelBref.textContent = "ensoleillé";
     
     labelTemperatureMin.textContent = `${weatherCard.TempMin()} °C`;
     labelTemperatureMax.textContent = `${weatherCard.TempMax()} °C`;
