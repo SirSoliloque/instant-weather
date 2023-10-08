@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;500&family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300&display=swap');
 
 
 body{
@@ -6,7 +6,7 @@ body{
     background-size: cover;
     text-align: center;
     background-color: black;
-    font-family: 'Young Serif', sans-serif;
+    font-family: 'Heebo', sans-serif;
     border-image: 10px solid black;
 }
 
@@ -14,13 +14,13 @@ h1{
     color: aliceblue;
     text-align: center;
     font-size: 500%;
-    font-family: 'Young Serif', sans-serif;
+    font-family: 'Heebo', sans-serif;
 }
 
 button{
     margin: 10px;
     font-size: large;
-    font-family: 'Young Serif', sans-serif;
+    font-family: 'Heebo', sans-serif;
 }
 
 
@@ -39,17 +39,66 @@ button{
     margin-right: auto;
     width: 25%;
     font-size: large;
+    margin-top : 30px;
+    background-color: rgba(255,255,255,0.7);
+    font-weight: bold;
+    font-size: x-large;
+    min-height: 250px;
+    min-width: 300px;
 }
 
 #villeListe{
     margin-top: 10px;
     margin-right: 5.5%;
     font-size: large;
-    font-family: 'Young Serif', sans-serif;
+    font-family: 'Heebo', sans-serif;
 }
 
 #codePostalInput{
-    font-size: large;
-    font-family: 'Young Serif', sans-serif;
+    font-size: medium;
+    font-family: 'Heebo', sans-serif;
+    width: 11%;
 
+}
+
+#nuage{
+    color: #2b3a55;
+    font-size: 250%;
+}
+
+#pluie{
+    color: #2b3a55;
+    font-size: 250%;
+}
+
+#neige{
+    color: #2b3a55;
+    font-size: 250%;
+}
+
+#vent{
+    color: #2b3a55;
+    font-size: 250%;
+}
+
+#grele{
+    color: #2b3a55;
+    max-width: 40px;
+    font-size: 250%;
+}
+
+#soleil{
+    color: #ffdd00;
+    font-size: 250%;
+}
+
+#brume{
+    color: #2b3a55;
+    max-width: 40px;
+    font-size: 250%;
+}
+
+#orage{
+    color: #ffeb0a;
+    font-size: 250%;
 }
