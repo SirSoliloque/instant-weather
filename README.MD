@@ -6,6 +6,8 @@ Cette application est un projet mené par 4 étudiants de l'Institut Universitai
 
 Cette application permet de connaître les informations météorologiques d'une ville française pour la journée.
 
+Le site est accessible depuis ce lien : https://sirsoliloque.github.io/instant-weather/
+
 ## Comment utiliser l'application ?
 
 1. Saisir le code postal de la ville souhaitée.
